@@ -9,6 +9,12 @@ This creates:
   - 3 user accounts: ava_beginner, marcus_inter, priya_advanced
   - Mastery scores across 8 concepts per student
   - Learning events (quiz history) over the past 30 days
+
+SECURITY NOTE: this script's password is public (this repo is public). If you
+have already run it against a real/live Supabase project, treat that password
+as compromised: rotate or delete the ava_beginner/marcus_inter/priya_advanced
+accounts in that project before relying on this repo being "clean". Set
+DEMO_SEED_PASSWORD in your environment to use a different password instead.
 """
 import hashlib
 import hmac as hmac_mod
@@ -27,7 +33,7 @@ from supabase import create_client
 _key = getattr(settings, 'supabase_service_key', None) or settings.supabase_key
 supabase = create_client(settings.supabase_url, _key)
 
-DEMO_PASSWORD = "DemoPass123!"
+DEMO_PASSWORD = os.environ.get("DEMO_SEED_PASSWORD", "DemoPass123!")
 _ITERATIONS = 260_000
 _SALT_SIZE = 16
 

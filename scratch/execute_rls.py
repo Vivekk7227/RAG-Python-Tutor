@@ -1,5 +1,8 @@
 import sys
-sys.path.append(r'c:\Users\91779\Desktop\AMS\HCAI-ITS\backend')
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.append(str(REPO_ROOT / "backend"))
 
 from app.config.supabase_client import supabase
 
@@ -13,4 +16,4 @@ def run_sql_file(filepath: str):
         print("Error:", e)
 
 if __name__ == "__main__":
-    run_sql_file(r'c:\Users\91779\Desktop\AMS\HCAI-ITS\scratch\update_rls.sql')
+    run_sql_file(str(Path(__file__).resolve().parent / "update_rls.sql"))

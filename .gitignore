@@ -5,6 +5,7 @@ dist/
 build/
 .cache/
 *.local
+**/.vite/
 
 # ── Python / Backend ─────────────────────────────────────
 __pycache__/
@@ -32,3 +33,8 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# ── AI tool auto-generated / local machine context ────────
+# (regenerated locally by editor extensions; contains local usernames/paths)
+.github/copilot-instructions.md
+.github/copilot-toolbox-mcp-skills-awareness.md

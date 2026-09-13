@@ -1,5 +1,8 @@
 import sys
-sys.path.append(r'c:\Users\91779\Desktop\AMS\HCAI-ITS\backend')
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+sys.path.append(str(REPO_ROOT / "backend"))
 
 from app.config.supabase_client import supabase
 

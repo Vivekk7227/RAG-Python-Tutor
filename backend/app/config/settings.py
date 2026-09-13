@@ -8,7 +8,8 @@ class Settings(BaseSettings):
     debug: bool = False
 
     # JWT settings
-    secret_key: str = "supersecretjwtkey_change_this_in_production_32chars"
+    # No insecure default on purpose: must be set via SECRET_KEY in .env / env vars.
+    secret_key: str = ""
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 60
 
